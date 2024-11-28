@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+.DS_Store
 
 # C extensions
 *.so
@@ -100,6 +101,7 @@ celerybeat-schedule
 .venv
 env/
 venv/
+venv2/
 ENV/
 env.bak/
 venv.bak/
@@ -121,3 +123,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# my files
+settings.py
