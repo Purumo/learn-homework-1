@@ -26,13 +26,8 @@ questions_and_answers = {
 def ask_user(answers_dict):
     out_answer = ''
     inp_question = input("Пожалуйста спросите: ")
-    
-    if inp_question in answers_dict.keys():
-        out_answer = answers_dict[inp_question]
-    else:
-        out_answer = 'Я не знаю ответа на такой вопрос!'
         
-    print(out_answer)
+    print(answers_dict.get(inp_question, 'Я не знаю ответа на такой вопрос!'))
     
 if __name__ == "__main__":
     ask_user(questions_and_answers)

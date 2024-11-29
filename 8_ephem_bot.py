@@ -36,36 +36,25 @@ def get_constellation(update, context):
     planet = user_text.split()[1]
 
     dt = datetime.now()
-    
-    answer = ''
-    if planet in (
-        "Mercury", "Venus",
-        "Mars", "Jupiter", "Saturn", 
-        "Uranus", "Neptune", "Pluto"
-    ):
-        if planet == 'Mercury':
-            ephem_planet = ephem.Mercury(dt)
-        elif planet == 'Venus':
-            ephem_planet = ephem.Venus(dt)
-        elif planet == 'Earth':
-            ephem_planet = ephem.Earth(dt)
-        elif planet == 'Mars':
-            ephem_planet = ephem.Mars(dt)
-        elif planet == 'Jupiter':
-            ephem_planet = ephem.Jupiter(dt)
-        elif planet == 'Saturn':
-            ephem_planet = ephem.Saturn(dt)
-        elif planet == 'Uranus':
-            ephem_planet = ephem.Uranus(dt)
-        elif planet == 'Neptune':
-            ephem_planet = ephem.Neptune(dt)
-        elif planet == 'Pluto':
-            ephem_planet = ephem.Pluto(dt)
-        
+
+    planets_info = {
+        "Mercury": ephem.Mercury(dt), 
+        "Venus": ephem.Venus(dt),
+        "Mars": ephem.Mars(dt), 
+        "Jupiter": ephem.Jupiter(dt), 
+        "Saturn": ephem.Saturn(dt), 
+        "Uranus": ephem.Uranus(dt), 
+        "Neptune": ephem.Neptune(dt), 
+        "Pluto": ephem.Pluto(dt),
+        "Earth": ""
+    }
+    ephem_planet = planets_info.get(planet)
+
+    if ephem_planet:
         cons = ephem.constellation(ephem_planet)
         constellations = ', '.join(str(con) for con in cons)
         answer = f"Планета {planet} сегодня находится в созвездиях: {constellations}."
-    elif planet == "Earth":
+    elif ephem_planet == "":
         answer = f"Для планеты {planet} нельзя рассчитать созвездие."
     else:
         answer = f"{planet} не является планетой солнечной системы!"

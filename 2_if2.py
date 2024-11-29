@@ -16,16 +16,14 @@
 """
 
 def compare_strings(s1, s2):
-    out_val = -1
     if not(type(s1) is str and type(s2) is str):
-        out_val = 0
+        return 0
     elif s1 == s2:
-        out_val = 1
+        return 1
     elif len(s1) > len(s2):
-        out_val = 2
+        return 2
     elif s1 != s2 and s2 == 'learn':
-        out_val = 3
-    return out_val
+        return 3
 
 def main():
     print(f'{compare_strings(3, 'hello world') = }')
