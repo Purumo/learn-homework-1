@@ -1,6 +1,6 @@
 """
 
-Домашнее задание №1
+Домашнее задание №6
 
 Исключения: KeyboardInterrupt
 
@@ -11,10 +11,16 @@
 """
 
 def hello_user():
-    """
-    Замените pass на ваш код
-    """
-    pass
+    inp = ""
+    msg = "Как дела?"
+
+    try:
+        while inp != "Хорошо":
+            inp = input(f'{msg}\n')
+    except KeyboardInterrupt:
+        print("Пока!")
+    except:
+        print("Случилось что-то странное :(")
     
 if __name__ == "__main__":
     hello_user()

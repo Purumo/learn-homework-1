@@ -1,6 +1,6 @@
 """
 
-Домашнее задание №1
+Домашнее задание №2
 
 Условный оператор: Сравнение строк
 
@@ -15,12 +15,27 @@
 
 """
 
+def compare_strings(s1, s2):
+    if not(type(s1) is str and type(s2) is str):
+        return 0
+    elif s1 == s2:
+        return 1
+    elif len(s1) > len(s2):
+        return 2
+    elif s1 != s2 and s2 == 'learn':
+        return 3
+
 def main():
-    """
-    Эта функция вызывается автоматически при запуске скрипта в консоли
-    В ней надо заменить pass на ваш код
-    """
-    pass
+    print(f'{compare_strings(3, 'hello world') = }')
     
+    print(f'{compare_strings('I like chocolate', 'I like chocolate') = }')
+    
+    print(f'{compare_strings('I like chocolate so much', 'I like chocolate') = }')
+    
+    print(f'{compare_strings('small', 'learn') = }')
+    
+    print(f'{compare_strings('learn', 'learn') = }')
+    
+
 if __name__ == "__main__":
     main()

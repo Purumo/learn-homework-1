@@ -1,6 +1,6 @@
 """
 
-Домашнее задание №1
+Домашнее задание №4
 
 Цикл while: hello_user
 
@@ -11,11 +11,11 @@
 
 
 def hello_user():
-    """
-    Замените pass на ваш код
-    """
-    pass
-
+    inp = ""
+    msg = "Как дела?"
+    
+    while inp != "Хорошо":
+        inp = input(f'{msg}\n')
     
 if __name__ == "__main__":
     hello_user()
